@@ -6,10 +6,10 @@ services:
       - "8080:8080"
     restart: always
     depends_on:
-      root_db:
+      nocodb_data:
         condition: service_healthy
     environment:
-      NC_DB: "pg://nocodb_data:5555?u=postgres&p=password&d=nocodb_admin"
+      NC_DB: "pg://nocodb_data:5432?u=postgres&p=password&d=nocodb_admin"
     volumes:
       - "nc_data:/usr/app/data"
   nocodb_data:
